@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>new-client</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">new-client</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="container mt-4">
+    <h1>Nuevo Cliente</h1>
+    <input
+      class="form-control mb-2"
+      [(ngModel)]="client.name"
+      placeholder="Nombre"
+    />
+    <input
+      class="form-control mb-2"
+      [(ngModel)]="client.email"
+      placeholder="Email"
+    />
+    <input
+      class="form-control mb-2"
+      [(ngModel)]="client.phone"
+      placeholder="Teléfono"
+    />
+    <button class="btn btn-success" (click)="save()">Guardar</button>
+  </div>
+</ion-content>

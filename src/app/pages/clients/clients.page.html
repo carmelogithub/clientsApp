@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>clients</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">clients</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="container mt-4">
+    <h1>Clientes</h1>
+    <a routerLink="/new-client" class="btn btn-primary mb-3"> Nuevo Cliente </a>
+    <table class="table table-bordered">
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Teléfono</th>
+        <th>Acciones</th>
+      </tr>
+      <tr *ngFor="let c of clients">
+        <td>{{ c.id }}</td>
+        <td>{{ c.name }}</td>
+        <td>{{ c.email }}</td>
+        <td>{{ c.phone }}</td>
+        <td>
+          <a
+            [routerLink]="['/edit-client',c.id]" class="btn btn-warning">Editar </a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</ion-content>
