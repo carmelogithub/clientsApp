@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">login</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="container mt-4">
+    <h1>Login de usuario</h1>
+    <input
+      class="form-control mb-2"
+      [(ngModel)]="email"
+      placeholder="Dirección de correo"
+    />
+    <input
+      class="form-control mb-2"
+      [(ngModel)]="password"
+      placeholder="Contraseña"
+    />
+   
+    <button class="btn btn-success" (click)="comprobar()">Acceder</button>
+  </div>
+
+
+</ion-content>

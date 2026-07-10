@@ -9,6 +9,7 @@ import {
 } from '@ionic/angular/standalone';
 import { Clients } from 'src/app/services/clients';
 import { RouterLink } from '@angular/router';
+import { Auth } from 'src/app/services/auth';
 
 @Component({
   selector: 'app-clients',
@@ -28,7 +29,7 @@ import { RouterLink } from '@angular/router';
 export class ClientsPage implements OnInit {
   clients: any[] = [];
 
-  constructor(private service: Clients) {}
+  constructor(private service: Clients,private auth:Auth) {}
 
   ngOnInit() {
     this.loadClients();
@@ -43,6 +44,7 @@ export class ClientsPage implements OnInit {
   }
 
   async delete(id: number) {
+    
     const confirmar = confirm('¿Desea eliminar este cliente?');
     if (!confirmar) {
       return;
@@ -55,4 +57,9 @@ export class ClientsPage implements OnInit {
       alert('Error eliminando cliente');
     }
   }
+  async salir(){
+    await this.auth.logout();
+    alert("Sesión cerrada");
+  }
+
 } //cierra class
