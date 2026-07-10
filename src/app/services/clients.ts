@@ -5,6 +5,7 @@ import { Client } from '../interfaces/client.interface';
 @Injectable({
   providedIn: 'root',
 })
+
 export class Clients {
   async getClients() {
     const { data, error } = await supabase.from('clients').select('*');

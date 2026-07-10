@@ -31,6 +31,10 @@
           <a
             [routerLink]="['/edit-client',c.id]" class="btn btn-warning">Editar </a>
         </td>
+        <td>
+          <a
+            (click)="delete(c.id)" class="delete-button">Eliminar </a>
+        </td>
       </tr>
     </table>
   </div>

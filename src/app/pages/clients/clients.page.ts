@@ -22,7 +22,7 @@ import { RouterLink } from '@angular/router';
     IonToolbar,
     CommonModule,
     FormsModule,
-    RouterLink
+    RouterLink,
   ],
 })
 export class ClientsPage implements OnInit {
@@ -30,9 +30,29 @@ export class ClientsPage implements OnInit {
 
   constructor(private service: Clients) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.loadClients();
+  }
 
   async ionViewWillEnter() {
+    
+  }
+
+  async loadClients(){
     this.clients = await this.service.getClients();
+  }
+
+  async delete(id: number) {
+    const confirmar = confirm('¿Desea eliminar este cliente?');
+    if (!confirmar) {
+      return;
+    }
+    try {
+      await this.service.deleteClient(id);//id pasamos desde template
+      await this.loadClients();//refrescar la lista tras la eliminación
+    } catch (error) {
+      console.error(error);
+      alert('Error eliminando cliente');
+    }
   }
 } //cierra class
